@@ -56,7 +56,24 @@ Page({
         img: '/images/icon_moreProducts.png',
         title: '更多商品'
       }
-    ]
+    ],
+    protuctSorts: [
+      {
+        title: '新品特价', 
+        checked:true
+      },{
+        title: '优惠活动',
+        checked: false
+      },{
+        title: '七折优惠',
+        checked: false
+      },{
+        title: '进口专区',
+        checked:false
+      },{
+        title: '美妆专区',
+        checked: false
+      }]
   },
 
   /**

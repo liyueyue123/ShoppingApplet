@@ -201,19 +201,21 @@ page{
   height:167rpx;
   background:rgba(255,255,255,1);
   border-radius:14rpx;
+  padding-top:15rpx;
+  box-sizing: border-box;
 }
 .home_public .home_public_tip {
-  margin: 15rpx 0 0 15rpx;
+  margin-left:15rpx;
   font-size:22rpx;
   font-weight:400;
   color:rgba(127,134,153,1);
 }
 .home_public .home_public_img {
   display: inline-block;
-  margin:26rpx 0 0 24rpx;
+  margin:19rpx 0 0 24rpx;
   width:80rpx;
   height:80rpx;
-  background:rgba(216,169,255,1);
+  /* background:rgba(216,169,255,1); */
   border-radius:50%;
 }
 .home_public .home_public_inner{
@@ -260,4 +262,71 @@ page{
   width: 100%;
   height: auto;
   background:rgba(255,255,255,1);
+}
+.product_title_list {
+  width: 100%;
+  height: 107rpx;
+  padding-left:40rpx;
+  padding-top: 15rpx;
+  box-sizing: border-box;
+}
+.product_title_list view{
+  margin-right: 29rpx;
+  padding-bottom: 12rpx;
+  display: inline-block;
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(127,134,153,1);
+}
+.product_title_list view.active{
+  border-bottom: 6rpx solid #B461F8;
+  font-size:42rpx;
+  font-weight:500;
+  color:rgba(63,63,63,1);
+}
+.product_content_list {
+  width: 100%;
+  height: auto;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.product_content_list .product_list_box{
+  width: 330rpx;
+  height: 505rpx;
+  border:1px solid rgba(214, 215, 220, 1);
+  border-radius:8rpx;
+  box-sizing: border-box;
+}
+.product_content_list .product_list_box .product_item_img{
+  width: 100%;
+  height: 329rpx;
+  background-color: #FFF7CF;
+}
+.product_content_list .product_list_box .product_item_name{
+  margin: 10rpx 0 0 10rpx;
+  font-size:27rpx;
+  font-weight:400;
+  color:rgba(63,63,63,1);
+}
+.product_content_list .product_list_box .product_item_type {
+  margin: 10rpx 0 0 10rpx;
+  font-size:23rpx;
+  font-weight:400;
+  color:rgba(127,134,153,1);
+}
+.product_content_list .product_list_box .product_item_price{
+  display: inline-block;
+  margin: 20rpx 0 0 8rpx;
+  font-size:31rpx;
+  font-weight:400;
+  color:rgba(63,63,63,1);
+}
+.product_content_list .product_list_box .product_item_plus{
+  margin: -7rpx 0 0 130rpx;
+  width: 28rpx;
+  height: 28rpx;
+  display: inline-block;
 }

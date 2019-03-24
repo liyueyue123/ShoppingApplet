@@ -61,7 +61,7 @@
 
    <view class='home_public'>
       <view class='home_public_tip'>吃吃喝喝关联的公众号</view>
-      <view class='home_public_img'></view>
+      <image class='home_public_img' src='/images/icon_product.png'></image>
       <view class='home_public_inner'>
         <view class='home_public_title'>吃吃喝喝</view>
         <view class='home_public_introduct'> 安装服务、货运服务、家政维修,安装服务、货运服务、家政维修</view>
@@ -70,10 +70,39 @@
    </view>
 
    <view class='home_product_box'>
-      <view>新品特价</view>
+      <view class='product_title_list'>
+        <view wx:for='{{protuctSorts}}' class="{{item.checked?'active':''}}">
+        {{item.title}}</view>
+      </view>
+      <view class='product_content_list'> 
+        <view class='product_list_box'>
+          <image src='' class='product_item_img'></image>
+          <view class="product_item_name">203升家用冰柜冷柜</view>
+          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
+          <view class='product_item_price'>￥1099.00</view>
+          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
+        </view>
+        <view class='product_list_box'>
+          <image src='' class='product_item_img'></image>
+          <view class="product_item_name">203升家用冰柜冷柜</view>
+          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
+          <view class='product_item_price'>￥1099.00</view>
+          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
+        </view>
+        <view class='product_list_box'>
+          <image src='' class='product_item_img'></image>
+          <view class="product_item_name">203升家用冰柜冷柜</view>
+          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
+          <view class='product_item_price'>￥1099.00</view>
+          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
+        </view>
+        <view class='product_list_box'>
+          <image src='' class='product_item_img'></image>
+          <view class="product_item_name">203升家用冰柜冷柜</view>
+          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
+          <view class='product_item_price'>￥1099.00</view>
+          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
+        </view>
+      </view>
    </view>
-   
-
-
-
 </view>
