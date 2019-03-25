@@ -12,7 +12,7 @@
     </view>
     <swiper class='home_swiper' indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}"  interval="{{interval}}"  
     duration="{{duration}}" circular="{{circular}}">
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
         <swiper-item>
           <image src="{{item}}" class="slide-image"/>
         </swiper-item>
@@ -22,7 +22,7 @@
    
    <view class='home_sort_box'>
     <view class='home_sorts'>
-      <view class='home_sort_list' wx:for="{{sortInner}}">
+      <view class='home_sort_list' wx:for="{{sortInner}}" wx:key='{{index}}'>
        <image src='{{item.img}}'></image>
        <view class='home_sort_title'>{{item.title}}</view>
       </view>
@@ -71,8 +71,7 @@
 
    <view class='home_product_box'>
       <view class='product_title_list'>
-        <view wx:for='{{protuctSorts}}' class="{{item.checked?'active':''}}">
-        {{item.title}}</view>
+        <view wx:for='{{protuctSorts}}' wx:key='{{index}}' data-index="{{index}}" bindtap='checkTab' class="{{index==protuctSortIndex?'active':''}}">{{item}}</view>
       </view>
       <view class='product_content_list'> 
         <view class='product_list_box'>

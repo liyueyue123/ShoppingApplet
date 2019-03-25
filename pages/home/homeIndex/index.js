@@ -57,23 +57,8 @@ Page({
         title: '更多商品'
       }
     ],
-    protuctSorts: [
-      {
-        title: '新品特价', 
-        checked:true
-      },{
-        title: '优惠活动',
-        checked: false
-      },{
-        title: '七折优惠',
-        checked: false
-      },{
-        title: '进口专区',
-        checked:false
-      },{
-        title: '美妆专区',
-        checked: false
-      }]
+    protuctSorts: ['新品特价', '优惠活动','七折优惠','进口专区','美妆专区'],
+    protuctSortIndex:0
   },
 
   /**
@@ -82,6 +67,15 @@ Page({
   onLoad: function (options) {
 
   },
-
-  
+  checkTab(e){
+    // console.log(e.currentTarget.dataset.index);
+    let _this= this;
+    let index = e.currentTarget.dataset.index;
+    if (_this.data.protuctSorts[index] == _this.data.protuctSortIndex){
+      return;
+    }
+    _this.setData({
+      protuctSortIndex: index
+    })
+  }
 })
