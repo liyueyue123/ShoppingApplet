@@ -23,7 +23,6 @@ Page({
       success: function (res) {
         var remen = res.data.remen;
         var history = res.data.history;
-
         that.setData({
           historyKeyList:history,
           hotKeyList:remen,

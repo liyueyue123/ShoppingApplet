@@ -26,7 +26,7 @@ page{
   border-radius: 30rpx;
   height: 60rpx;
   font-size: 26rpx;
-  color: #D6D7DC;
+  color: #7F8699;
   background-color: #fff;
 }
 .search_box .search_box_input {
@@ -36,7 +36,6 @@ page{
   height: 60rpx;
   border-radius: 30rpx;
   line-height: 60rpx;
-  color: #D6D7DC;
 }
 .search_box>image {
   margin: 16rpx 14rpx;

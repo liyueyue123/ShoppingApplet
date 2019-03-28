@@ -26,21 +26,22 @@ App({
           var code = res.code;
           console.log(res)
           //get wx user simple info
-         
+          that.getUser(code);
         }
       });
     }
   },
-  getLogin:function() {
-      wx.getUserInfo({
-          success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo);
-              //get user sessionKey
-              //get sessionKey
-              that.getUserSessionKey(code);
-          }
-      });
+  //判断用户是否授权
+  getUser:function(code){
+    var _this = this;
+    wx.getUserInfo({
+      success(res) {
+        console.log(res);
+        _this.globalData.userInfo = res.userInfo
+        typeof cb == "function" && cb(that.globalData.userInfo);
+        _this.getUserSessionKey(code);
+      }
+    })
   },
   getUserSessionKey:function(code){
     //用户的订单状态
@@ -55,6 +56,7 @@ App({
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res);
         //--init data        
         var data = res.data;
         if(data.status==0){

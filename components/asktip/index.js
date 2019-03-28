@@ -15,38 +15,13 @@ Component({
         asktip: true
       })
       if (userInfo) {
-        this.handleGetToken(userInfo) //获取token
-        wx.redirectTo({
+        app.getUserInfo();
+        wx.switchTab({
           url: '/pages/index/index'
         })
       } else {
         console.log('err')
       }
-    },
-
-    // 获取token 
-    handleGetToken(userInfo) {
-      var openId = wx.getStorageSync("openid");
-      userInfo.openID = openId;
-      // wx.request({
-      //   url: app.d.ceshiUrl + '/Api/Product/get_more',
-      //   method: 'post',
-      //   data: {
-      //     userInfo: JSON.stringify(userInfo)
-      //   },
-      //   header: {
-      //     'Content-Type': 'application/x-www-form-urlencoded'
-      //   },
-      //   success: function (res) {
-      //     console.log(res)
-      //   },
-      //   fail: function (e) {
-      //     wx.showToast({
-      //       title: '网络异常！',
-      //       duration: 2000
-      //     });
-      //   }
-      // })
     },
   }
 })

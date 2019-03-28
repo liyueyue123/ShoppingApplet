@@ -1,18 +1,14 @@
 // pages/home/homeIndex/index.js
+var app = getApp();
 Page({
   data: {
-    imgUrls: [
-      '/images/banner1.png',
-      '/images/banner.png',
-      '/images/banner1.png'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000,
     circular: true,
-    sortInner: [
-      {
+    sortInner: [{
         img: '/images/icon_newSeason.png',
         title: '当季新品'
       },
@@ -61,22 +57,60 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var _this = this;
+    //判断用户是否授权
     wx.getSetting({
       success(res) {
         if (!res.authSetting['scope.userInfo']) {
           _this.setData({
-            askIsShow:false
+            askIsShow: false
           })
-        }else{
+        } else {
           _this.setData({
             askIsShow: true
           })
         }
       }
+    });
+    _this.getSwiper();
+  },
+
+  // 获取轮播图
+  getSwiper(e) {
+    let _this = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Index/getBanner',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        // console.log(res);
+        let data = res.data.data;
+        let imgs = [];
+        for (let i = 0; i < data.length;i++){
+          imgs.push(data[i].photo);
+        }
+        _this.setData({
+          imgUrls: imgs
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      }
     })
   },
+  // 点击搜索
+  gotoSearch(){
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
+  // 列表分类切换
   checkTab(e) {
     // console.log(e.currentTarget.dataset.index);
     let _this = this;
@@ -88,4 +122,5 @@ Page({
       protuctSortIndex: index
     })
   }
+
 })

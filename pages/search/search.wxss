@@ -1,7 +1,7 @@
 /* pages/search/search.wxss */
 .search{
     padding: 1% 3%;
-    background: #FF5722;
+    background: #7944E6;
 }
 .search input{
     width: 75%;
