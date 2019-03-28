@@ -1,0 +1,110 @@
+/* pages/order/downline.wxss */
+
+.w100{ width: 100%}
+.p_all{
+    background: #fff;
+    width: 92%;
+    padding:2% 4%;
+    color: #666;
+    font-size: 14px;
+    display: block;
+    line-height: 25px;
+}
+.p_all01{
+    width: 92%;
+    padding:4%;
+    color: #666;
+    font-size: 14px;
+    display: block;
+    line-height: 25px;
+}
+.p_all text{
+    width: 100%;
+    display: block;
+}
+.iconWarn{
+   vertical-align:top;padding-right:2px;
+}
+
+.iconClear{
+  float:right;
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right:10px;
+  margin-top:-36px;
+  height: 28px;
+}
+
+.inputStyle{
+  height: 36px;
+  line-height: 36px;
+  border:1px solid #ddd;
+  border-radius: 2px;
+  width: 100%;
+  
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 14px;
+
+}
+
+.tips{
+  margin-bottom:10px;
+}
+.x_right{
+    width:16px;
+    height: 18px;
+    display:inline-block; 
+    vertical-align: middle;
+    float: right; 
+}
+.zhifu{
+    background: #fff;
+    margin-bottom: 1px;
+    padding: 4%;
+    width: 92%;
+    font-size: 14px;
+    color: #666;
+}
+.min_60{
+    min-height: 120px;
+}
+
+
+
+.my-ib{
+  display: inline-block;
+}
+
+.comment{
+  margin-top: 20px;
+  margin-left: 16px;
+}
+
+.comment_text{
+  padding-right: 10px;
+  font-size: 14px;
+}
+
+.zan-c-red{
+  color: #FF5722;
+  font-size: 18px;
+}
+
+.zan-c-gray-dark{
+  
+  font-size: 18px;
+}
+
+.zan-c-gray-dark1{
+  
+  font-size: 14px;
+}
+
+
+.comment_textarea{
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-right: 20px;
+}

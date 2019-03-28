@@ -1,0 +1,9 @@
+<!--components/asktip/index.wxml-->
+<view class='tipPage' hidden='{{asktip}}'>
+  <view class='loginTip'>
+    <view class='loginTitle'>温馨提示</view>
+    <view class='loginContent'>需要授权您的公开信息（昵称、头像等）后才能使用，春桃不会将您的信息提供给第三方，现在开启~</view>
+    <view class='line'></view>
+    <button class='loginTrue' open-type="getUserInfo" bindgetuserinfo="askTip" bindtap="">开启授权</button>
+  </view>
+</view>

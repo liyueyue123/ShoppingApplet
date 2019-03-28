@@ -1,0 +1,29 @@
+<!--pages/order/downline.wxml-->
+<view>
+
+
+  <view class='comment'>
+    <label class='comment_text'>评分</label>
+    <view class="zan-font-16 my-ib" bindtap="myStarChoose">
+      <block wx:for="{{starMap}}">
+        <text wx:if="{{star>=index+1}}" style="padding-right: .5em" class="zan-c-red" data-star="{{index+1}}">★</text>
+        <text wx:if="{{star<index+1}}" style="padding-right: .5em" class="zan-c-gray-dark" data-star="{{index+1}}">☆</text>
+      </block>
+    </view>
+    <!--★-->
+    <text class="zan-c-gray-dark1">{{starMap[star-1]}}</text>
+  </view>
+
+  <view class='comment_textarea'>
+    <textarea class="min_60 inputStyle" auto-height id="remark" name="remark" placeholder="宝贝满足你的期待吗？说说它的优点和美中不足的地方吧" bindinput="remarkInput" value="{{remark}}" />
+  </view>
+
+  <view class="w100">
+    <view class="p_all01 mtt0">
+      <view class="btnGreen">
+        <button type="primary" id="btnPay" formType="submit" bindtap="submitReturnData">确定</button>
+      </view>
+    </view>
+  </view>
+
+</view>

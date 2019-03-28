@@ -1,0 +1,28 @@
+<!--pages/order/detail.wxml-->
+<view class="w100">
+
+
+  <view class='interval'></view>
+  <view class='order_msg'>
+    <view class='order_text'>快递：{{kuaidi_name}}</view>
+    <view class='order_text'>快递单号：{{kuaidi_num}}</view>
+  </view>
+
+  <view class='interval'></view>
+
+
+  <view class='order_msg'>
+   <view wx:for="{{expressData}}" wx:for-index="idx" wx:for-item="express">
+    <view class='express_text'>{{express.AcceptTime}}: {{express.AcceptStation}}</view>
+</view>
+  </view>
+
+
+
+
+  
+
+
+
+
+</view>

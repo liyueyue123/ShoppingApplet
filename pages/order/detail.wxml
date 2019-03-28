@@ -1,0 +1,71 @@
+<!--pages/order/detail.wxml-->
+<view class="w100">
+  <view class="p_all bg_white df item" wx:for="{{proData}}">
+    <view class="cp_photo">
+      <image src="{{item.photo_x}}"></image>
+    </view>
+    <view class="df_1">
+      <view class="font_16 mt5 ovh1">
+        {{item.name}}
+      </view>
+      <text class="gm_ovh_1h red pt10">¥{{item.price}}</text>
+      <view class="sl">
+        数量：{{item.num}}
+      </view>
+      <view class="" wx:if="{{orderData.order_status=='已收货'}}">
+        <navigator url="../user/comment?orderId={{item.id}}&&pid={{item.pid}}" class="font_12 red fl_r mr_5 comment_bt" hover-class="none">评价送积分</navigator>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='interval'></view>
+  <view class='order_msg'>
+    <view class='order_text'>收货人：{{orderData.receiver}}</view>
+    <view class='order_text'>手机号码：{{orderData.tel}}</view>
+    <view class='order_text'>地址：{{orderData.address_xq}}</view>
+  </view>
+
+  <view class='interval'></view>
+
+  <view class='order_msg'>
+    <view class='order_text'>订单状态：
+      <text class="red">{{orderData.order_status}}</text>
+    </view>
+    <view class='order_text'>订单编号：{{orderData.order_sn}}</view>
+    <view class='order_text'>订单总金额：{{orderData.price}}</view>
+    <view class='order_text'>订单时间：{{orderData.addtime}}</view>
+    <view class='order_text'>备注：{{orderData.remark?orderData.remark:'无'}}</view>
+  </view>
+
+  <view wx:if="{{orderData.kuaidi_name}}">
+        <view class='interval'></view>
+        <view class='order_msg'>
+          <view class='order_text'>快递：{{orderData.kuaidi_name}}</view>
+          <view class='order_text'>快递单号：{{orderData.kuaidi_num}}</view>
+        </view>
+  </view>
+
+  <view class="p_all mt10">
+    <view class="btnGreen">
+      <view wx:if="{{orderData.order_status=='待收货'}}">
+      <navigator class="" url="../order/express?kuaidi_name={{orderData.kuaidi_name}}&kuaidi_num={{orderData.kuaidi_num}}&post_code={{post_code}}"  hover-class="none">
+      <button type="default" class="wx_pay_submit">快递查询</button>
+      
+      </navigator>
+      </view>
+    </view>
+  </view>
+  
+
+  <view class="p_all mt10">
+    <view class="btnGreen">
+      <view wx:if="{{orderData.order_status=='待付款'}}">
+        <button class="wx_pay_submit" type="primary" id="wxPay" disabled="{{btnDisabled}}" data-orderId="{{orderData.id}}" data-ordersn="{{orderData.order_sn}}" formType="submit" bindtap="payOrderByWechat">微信支付</button>
+      </view>
+
+    </view>
+  </view>
+
+
+</view>

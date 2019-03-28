@@ -1,10 +1,7 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
+	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -12,12 +9,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.2",
+	"libVersion": "1.9.91",
 	"appid": "wx14bc7c0c634ae360",
-	"projectname": "SpringPeach",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
+	"projectname": "xcxverson34",
 	"isGameTourist": false,
 	"condition": {
 		"search": {

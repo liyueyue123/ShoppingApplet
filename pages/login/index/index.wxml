@@ -1,4 +1,0 @@
-<!--index.wxml-->
-<view class="container">
-  <button bindtap="goHome">登录</button>
-</view>

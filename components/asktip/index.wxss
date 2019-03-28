@@ -1,0 +1,51 @@
+/* components/asktip/index.wxss */
+.tipPage{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11000;
+  width: 100%;
+  height: 100%;
+	background:rgba(0,0,0,0.6);
+}
+.loginTip{
+  margin: 350rpx 80rpx; 
+  width: 594rpx;
+  height: 413rpx;
+  border-radius: 20rpx;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+.loginTip .loginTitle {
+    padding-top: 44rpx;
+    font-size: 34rpx;
+    text-align: center;
+    box-sizing: border-box;
+}
+.loginTip .loginContent {
+    margin: 40rpx 72rpx;
+    width: 450rpx;
+    height: 150rpx;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 50rpx;
+    color: #a3a3a3;
+    text-indent: 1em;
+}
+.loginTip .line {
+  width: 100%;
+  height: 1rpx;
+  background-color: #cccccc;
+}
+.loginTip .loginTrue {
+  display: block;
+  width: 100%;
+  border-radius:0;
+  overflow:hidden;
+  color:#95bd4b;
+  font-size: 30rpx;
+  background-color: #fff;
+}
+button::after {
+  border: none;
+}
