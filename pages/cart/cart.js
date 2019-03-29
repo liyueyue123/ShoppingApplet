@@ -126,6 +126,19 @@ bindCheckbox: function(e) {
   this.setData({
     carts: carts
   });
+  var arr = [];
+  for (var i = 0; i < this.data.carts.length; i++) {
+    arr.push(carts[i].selected);
+  }
+  if(arr.indexOf(undefined) != "-1" || arr.indexOf(false) != "-1"){
+    this.setData({
+      selectedAllStatus: false
+    })
+  }else{
+    this.setData({
+      selectedAllStatus: true
+    })
+  }
   this.sum()
 },
 
@@ -193,12 +206,16 @@ sum: function() {
   },
 
 onLoad:function(options){
-    this.loadProductData();
-    this.sum();
+    // this.loadProductData();
+    // this.sum();
 },
 
 onShow:function(){
   this.loadProductData();
+  this.setData({
+    selectedAllStatus: false,
+    total: 0
+  })
 },
 
 removeShopCard:function(e){

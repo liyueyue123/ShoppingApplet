@@ -28,6 +28,21 @@
   font-size: 14px;
 }
 
+.powerBtn {
+  position: absolute;
+  bottom: 10rpx;
+  left: 250rpx;
+  z-index: 9999;
+  font-size: 32rpx;
+  background-color:#fafafa; 
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+button::after {
+  border: none;
+}
+
 .sc{
   background: #fff;
   width: 100%;
@@ -79,3 +94,4 @@ contact-button{
     -webkit-user-select: none;
     user-select:none;
 }
+

@@ -84,7 +84,7 @@
           <image src='{{item.photo_x}}' class='product_item_img'></image>
           <view class="product_item_name">{{item.name}}</view>
           <view class='product_item_type'>{{item.intro}}</view>
-          <view class='product_item_price'>￥{{item.price}}</view>
+          <view class='product_item_price'>￥{{item.price_yh}}</view>
           <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
         </view>
       </view>

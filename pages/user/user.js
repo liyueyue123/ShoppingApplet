@@ -32,22 +32,47 @@ Page( {
       }],
        loadingText: '加载中...',
        loadingHidden: false,
+       askIsShow:true  
   },
-  onLoad: function () {
-      var that = this
-      //调用应用实例的方法获取全局数据
-      app.getUserInfo(function(userInfo){
-        //更新数据
-        that.setData({
-          userInfo:userInfo,
-          loadingHidden: true
-        })
-      });
+  onLoad: function (options) {
+      var that = this;
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function (userInfo) {
+      console.log("我的" + JSON.stringify(userInfo));
+      //更新数据
+      that.setData({
+        userInfo: userInfo,
+        loadingHidden: true
+      })
+    });
 
-      this.loadOrderStatus();
+    //判断用户是否授权
+    if (!app.globalData.userInfo){
+      that.setData({
+        askIsShow: false
+      })
+    }
+    // this.loadOrderStatus();//获取用户订单数据
   },
-  onShow:function(){
+  onShow:function(options){
     this.loadOrderStatus();
+  },
+  // 询问授权
+  askTip: function (e) {
+    var userInfo = e.detail.userInfo;
+    this.setData({
+      askIsShow: false
+    })
+    console.log(e.detail.userInfo);
+    if (userInfo) {
+      app.getUserInfo();
+      app.globalData.userInfo = userInfo // 跳转页面刷新
+      wx.reLaunch({
+        url: '../index/index'
+      })
+    } else {
+      console.log('err')
+    }
   },
   loadOrderStatus:function(){
     //获取用户订单数据
@@ -71,7 +96,7 @@ Page( {
           });
         }else{
           wx.showToast({
-            title: '非法操作.',
+            title: '未知用户',
             duration: 2000
           });
         }

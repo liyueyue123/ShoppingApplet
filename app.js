@@ -119,6 +119,7 @@ App({
           return false;
         }
         that.d.userId = userId;
+        that.globalData.userId = userId;
       },
       fail:function(e){
         wx.showToast({
@@ -138,7 +139,8 @@ App({
   },
 
  globalData:{
-    userInfo:null
+    userInfo:null,
+    userId: null
   },
 
   onPullDownRefresh: function (){

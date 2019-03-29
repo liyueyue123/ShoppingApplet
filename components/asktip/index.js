@@ -15,8 +15,10 @@ Component({
       })
       if (userInfo) {
         app.getUserInfo();
-        wx.switchTab({
-          url: '/pages/index/index'
+        // 跳转页面刷新
+        app.globalData.userInfo = userInfo;
+        wx.reLaunch({
+          url: "../index/index"
         })
       } else {
         console.log('err')
