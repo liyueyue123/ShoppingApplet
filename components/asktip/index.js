@@ -2,7 +2,6 @@
 var app = getApp();     // 取得全局App
 Component({
   properties: {
-
   },
   data: {
     asktip: false

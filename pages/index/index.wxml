@@ -1,67 +1,71 @@
 <!--pages/home/homeIndex/index.wxml-->
 <view>
-<asktip id="asktip" style="display:{{askIsShow==true?'none':''}};"></asktip>
-<view class='home_container'>
-   <view class='banner_bg'>
-    <image class='banner_bg_img' src='/images/icon_bannerBg.png'></image>
-    <view class='search_box'>
-      <image src='/images/icon_seach.png'></image>
-      <view class='search_box_input' bindtap='gotoSearch'>搜索您要的商品</view>
-    </view>
-    <view class='info_box'>
-      <image class='info_img' src='/images/icon_info.png'></image>
-      <view class='info_content'>13</view>
-    </view>
-    <swiper class='home_swiper' indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}"  interval="{{interval}}"  
-    duration="{{duration}}" circular="{{circular}}">
-      <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
-        <swiper-item>
-          <image src="{{item}}" class="slide-image"/>
-        </swiper-item>
-      </block>
-    </swiper>
-   </view>
-   
-   <view class='home_sort_box'>
-    <view class='home_sorts'>
-      <view class='home_sort_list' wx:for="{{sortInner}}" wx:key='{{index}}'>
-       <image src='{{item.img}}'></image>
-       <view class='home_sort_title'>{{item.title}}</view>
+  <asktip id="asktip" style="display:{{askIsShow==true?'none':''}};"></asktip>
+  <view class='home_container'>
+    <view class='banner_bg'>
+      <image class='banner_bg_img' src='/images/icon_bannerBg.png'></image>
+      <view class='search_box'>
+        <image src='/images/icon_seach.png'></image>
+        <view class='search_box_input' bindtap='gotoSearch'>搜索您要的商品</view>
       </view>
-    </view>
-    <view class='home_recommend'>
-      <view class='home_recommend_box'>
-        <view class='home_recommend_title'>热门商品</view>
-        <view class='home_recommend_list'>
-          <view class='home_recommend_item'>
-            <image class='home_recommend_product' src='/images/icon_product_01.png'></image>
-            <image class='home_recommend_hot' src='/images/icon_hotProduct.png'></image>
-          </view>
-          <view class='home_recommend_item'>
-            <image class='home_recommend_product' src='/images/icon_product_01.png'></image>
-            <image class='home_recommend_hot' src='/images/icon_hotProduct.png'></image>
-          </view>
-          <view class='home_recommend_item'>
-            <image class='home_recommend_more' src='/images/icon_more.png'></image>
-          </view>
-        </view>
-        <view class='home_recommend_text'>鬼知道你喜欢啥</view>
+      <view class='info_box'>
+        <image class='info_img' src='/images/icon_info.png'></image>
+        <view class='info_content'>13</view>
       </view>
-      <view class='home_recommend_box'>
-        <view class='home_recommend_title'>热卖套装</view>
-        <view class='home_recommend_list'>
-          <image class='home_recommend_suit' src='/images/icon_product.png'></image>
-          <view class='home_suit_box'>
-            <view class='home_suit_title'>加加减减公主眼膜</view>
-            <view class='home_suit_access'>1000+评价</view>
-          </view>
-        </view>
-        <view class='home_recommend_text'>五万人推荐</view>
-      </view>
+      <swiper class='home_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+        <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
+          <swiper-item>
+            <image src="{{item.photo}}" class="slide-image" />
+          </swiper-item>
+        </block>
+      </swiper>
     </view>
-   </view>
 
-   <view class='home_public'>
+    <view class='home_sort_box'>
+      <view class='home_sorts'>
+        <view class='home_sort_list' wx:for="{{sortInner}}" wx:key='{{index}}' data-id="{{item.id}}" bindtap='gotoProduct'>
+          <image src='{{item.theme_img}}'></image>
+          <view class='home_sort_title'>{{item.theme_name}}</view>
+        </view>
+      </view>
+      <view class='home_recommend'>
+        <view class='home_recommend_box'>
+          <navigator url="/pages/listdetail/listdetail" hover-class="none">
+            <view class='home_recommend_title'>热门商品</view>
+            <view class='home_recommend_list'>
+              <view class='home_recommend_item'>
+                <image class='home_recommend_product' src='{{recommendProduct[0].photo_x}}'></image>
+                <image class='home_recommend_hot' src='/images/icon_hotProduct.png'></image>
+              </view>
+              <view class='home_recommend_item'>
+                <image class='home_recommend_product' src='{{recommendProduct[1].photo_x}}'></image>
+                <image class='home_recommend_hot' src='/images/icon_hotProduct.png'></image>
+              </view>
+              <view class='home_recommend_item'>
+                <image class='home_recommend_more' src='/images/icon_more.png'></image>
+              </view>
+            </view>
+            <view class='home_recommend_text'>鬼知道你喜欢啥</view>
+          </navigator>
+        </view>
+
+        <view class='home_recommend_box'>
+          <navigator url="/pages/listdetail/listdetail" hover-class="none">
+            <view class='home_recommend_title'>热卖套装</view>
+            <view class='home_recommend_list' style='display:flex;justify-content: left;'>
+              <image class='home_recommend_suit' src='{{recommendList.photo_x}}'></image>
+              <view class='home_suit_box' style='max-width:240rpx;margin-left:10rpx;overflow:hidden;'>
+                <view class='home_suit_title' style='white-space:nowrap;text-overflow:ellipsis;overflow-x:hidden;width:200rpx;margin-top:-10rpx;line-height:24rpx;'>{{recommendList.name}}</view>
+                <view class='home_suit_access' style='line-height:66rpx;'>1000+评价</view>
+              </view>
+            </view>
+            <view class='home_recommend_text'>五万人推荐</view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+
+    <view class='home_public'>
       <view class='home_public_tip'>吃吃喝喝关联的公众号</view>
       <image class='home_public_img' src='/images/icon_product.png'></image>
       <view class='home_public_inner'>
@@ -69,42 +73,22 @@
         <view class='home_public_introduct'> 安装服务、货运服务、家政维修,安装服务、货运服务、家政维修</view>
       </view>
       <view class='home_public_attention'>关注</view>
-   </view>
+    </view>
 
-   <view class='home_product_box'>
+    <view class='home_product_box'>
       <view class='product_title_list'>
-        <view wx:for='{{protuctSorts}}' wx:key='{{index}}' data-index="{{index}}" bindtap='checkTab' class="{{index==protuctSortIndex?'active':''}}">{{item}}</view>
+        <view wx:for='{{protuctSorts}}' wx:key='{{index}}' data-index="{{index}}" bindtap='checkTab' class="{{index==protuctSortIndex?'active':''}}">{{item.theme_name}}</view>
       </view>
-      <view class='product_content_list'> 
-        <view class='product_list_box'>
-          <image src='' class='product_item_img'></image>
-          <view class="product_item_name">203升家用冰柜冷柜</view>
-          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
-          <view class='product_item_price'>￥1099.00</view>
-          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
-        </view>
-        <view class='product_list_box'>
-          <image src='' class='product_item_img'></image>
-          <view class="product_item_name">203升家用冰柜冷柜</view>
-          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
-          <view class='product_item_price'>￥1099.00</view>
-          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
-        </view>
-        <view class='product_list_box'>
-          <image src='' class='product_item_img'></image>
-          <view class="product_item_name">203升家用冰柜冷柜</view>
-          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
-          <view class='product_item_price'>￥1099.00</view>
-          <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
-        </view>
-        <view class='product_list_box'>
-          <image src='' class='product_item_img'></image>
-          <view class="product_item_name">203升家用冰柜冷柜</view>
-          <view class='product_item_type'>节能静音NR-W621CG-XN</view>
-          <view class='product_item_price'>￥1099.00</view>
+      <view class='product_content_list'>
+        <view class='product_list_box' wx:for='{{protuctSorts[protuctSortIndex].product}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap='gotoDetail'>
+          <image src='{{item.photo_x}}' class='product_item_img'></image>
+          <view class="product_item_name">{{item.name}}</view>
+          <view class='product_item_type'>{{item.intro}}</view>
+          <view class='product_item_price'>￥{{item.price}}</view>
           <image src='/images/icon_productPlus.png' class='product_item_plus'></image>
         </view>
       </view>
-   </view>
-</view>
+    </view>
+
+  </view>
 </view>

@@ -8,50 +8,13 @@ Page({
     interval: 5000,
     duration: 1000,
     circular: true,
-    sortInner: [{
-        img: '/images/icon_newSeason.png',
-        title: '当季新品'
-      },
-      {
-        img: '/images/icon_skinCream.png',
-        title: '护肤脸霜'
-      },
-      {
-        img: '/images/icon_makeupSort.png',
-        title: '彩妆分类'
-      },
-      {
-        img: '/images/icon_discountArea.png',
-        title: '七折专区'
-      },
-      {
-        img: '/images/icon_maskBoutique.png',
-        title: '面膜精品'
-      },
-      {
-        img: '/images/icon_hairCare.png',
-        title: '头发护理'
-      },
-      {
-        img: '/images/icon_digitalPlaything.png',
-        title: '数码玩物'
-      },
-      {
-        img: '/images/icon_hotSale.png',
-        title: '当季热销'
-      },
-      {
-        img: '/images/icon_skinCare.png',
-        title: '皮肤护理'
-      },
-      {
-        img: '/images/icon_moreProducts.png',
-        title: '更多商品'
-      }
-    ],
-    protuctSorts: ['新品特价', '优惠活动', '七折优惠', '进口专区', '美妆专区'],
+    sortInner: [],
+    protuctSorts: [],
     protuctSortIndex: 0,
-    askIsShow: true
+    askIsShow: true,
+    homeProList:[],
+    recommendProduct: [], // 热门商品
+    recommendList: [], // 热卖套装
   },
 
   /**
@@ -73,11 +36,15 @@ Page({
         }
       }
     });
-    _this.getSwiper();
+    _this.getSwiper(); //获取轮播图
+    _this.getTheme(); //获取顶部主题
+    _this.getBottomTheme(); //获取底部主题
+    _this.getRecommendList(); //热卖套装
+    _this.getrecommendProduct(); //热卖商品
   },
 
   // 获取轮播图
-  getSwiper(e) {
+  getSwiper(options) {
     let _this = this;
     wx.request({
       url: app.d.ceshiUrl + '/Api/Index/getBanner',
@@ -87,13 +54,8 @@ Page({
       },
       success: function (res) {
         // console.log(res);
-        let data = res.data.data;
-        let imgs = [];
-        for (let i = 0; i < data.length;i++){
-          imgs.push(data[i].photo);
-        }
         _this.setData({
-          imgUrls: imgs
+          imgUrls: res.data.data
         })
       },
       fail: function (e) {
@@ -110,7 +72,62 @@ Page({
       url: '../search/search'
     })
   },
-  // 列表分类切换
+  // 分类主题
+  getTheme(options){
+    let _this = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Index/getTopTheme',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res);
+        _this.setData({
+          sortInner: res.data.data
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      }
+    })
+  },
+  // 顶部主题跳转
+  gotoProduct(e){
+    // console.log(e.currentTarget.dataset.id);
+    let themeId = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: "../listdetail/listdetail?id=" + themeId+"&type=00"
+    })
+  },
+  // 获取底部主题
+  getBottomTheme(options){
+    let _this = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Index/getBottomTheme',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res);
+        _this.setData({
+          protuctSorts: res.data.data,
+          homeProList:res.data.data[0]
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      }
+    })
+  },
+  // 底部主题切换
   checkTab(e) {
     // console.log(e.currentTarget.dataset.index);
     let _this = this;
@@ -120,6 +137,63 @@ Page({
     }
     _this.setData({
       protuctSortIndex: index
+    })
+  },
+  // 点击商品跳转详情
+  gotoDetail(e){
+    // console.log(e.currentTarget.dataset.id);
+    let productId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "../product/detail?productId=" + productId
+    })
+  },
+  // 热卖商品
+  getrecommendProduct() {
+    let _this = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Index/getPagesHotProduct',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log('热卖商品',res.data);
+        let data = res.data.data;
+        let recommendProduct = [data[0], data[1]]
+        _this.setData({
+          recommendProduct: recommendProduct
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      }
+    })
+  },
+  // 热卖套装
+  getRecommendList() {
+    let _this = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Index/getPagesShowProduct',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log('热卖套装',res.data);
+        let data = res.data.data;
+        _this.setData({
+          recommendList: data[0]
+        })
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      }
     })
   }
 

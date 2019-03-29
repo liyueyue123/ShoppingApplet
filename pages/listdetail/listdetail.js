@@ -105,36 +105,65 @@ onLoad: function (options) {
     var ptype = options.ptype;
     var brandId = options.brandId;
     var that = this;
+    // 首页主题
+    var themeType = options.type;
+    var themeId = options.id; 
     that.setData({
       ptype: ptype,
       catId: cat_id,
       brandId: brandId
     })
     //ajax请求数据
-    wx.request({
-      url: app.d.ceshiUrl + '/Api/Product/lists',
-      method:'post',
-      data: {
-        cat_id:cat_id,
-        ptype:ptype,
-        brand_id: brandId
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        var shoplist = res.data.pro;
-        that.setData({
-          shopList: shoplist
-        })
-      },
-      error: function(e){
-        wx.showToast({
-          title: '网络异常！',
-          duration: 2000
-        });
-      }
-    })
+    if (themeType=="00"){
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Index/getTopThemeProduct',
+        method: 'post',
+        data:{
+          theme_id: themeId
+        },
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          console.log(res);
+          var shoplist = res.data.data;
+          that.setData({
+            shopList: shoplist
+          })
+        },
+        fail: function (e) {
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        }
+      })
+    }else{
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Product/lists',
+        method: 'post',
+        data: {
+          cat_id: cat_id,
+          ptype: ptype,
+          brand_id: brandId
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          var shoplist = res.data.pro;
+          that.setData({
+            shopList: shoplist
+          })
+        },
+        error: function (e) {
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        }
+      })
+    }
 
   },
   //详情页跳转

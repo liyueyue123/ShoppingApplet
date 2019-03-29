@@ -7,7 +7,7 @@
   width: 750rpx;
   height: 320rpx;
   background: #fafafa;
-  color: #fff;
+  color: #000;
   display: flex;
   flex-direction: column;
   align-items: center;
