@@ -56,7 +56,7 @@
               <image class='home_recommend_suit' src='{{recommendList.photo_x}}'></image>
               <view class='home_suit_box' style='max-width:240rpx;margin-left:10rpx;overflow:hidden;'>
                 <view class='home_suit_title' style='white-space:nowrap;text-overflow:ellipsis;overflow-x:hidden;width:200rpx;margin-top:-10rpx;line-height:24rpx;'>{{recommendList.name}}</view>
-                <view class='home_suit_access' style='line-height:66rpx;'>1000+评价</view>
+                <view class='home_suit_access' style='line-height:58rpx;'>1000+评价</view>
               </view>
             </view>
             <view class='home_recommend_text'>五万人推荐</view>
