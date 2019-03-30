@@ -1,19 +1,52 @@
 .section{ position: absolute; width: 100%; height: 100% ; overflow: hidden;}
-.left{ position: absolute; left: 0; top: 0; height: 100%; width: 90px; background: #F6F6F6; text-align: center;font-size:28rpx;}
+.left{ position: absolute; left: 0; top: 110rpx; min-height: 1000rpx; height: auto; width: 90px; background: #F6F6F6; text-align: center;font-size:28rpx;}
 .left::before{ content: ""; position: absolute; background: #dcdcdc; right: 0; top: 0; height: 100%; }
 .left view.active{ background: #FFF; position: relative; z-index: 2;color: #FF5722;}
-.left view{ display: block; height: 60px; line-height: 60px; border-bottom: 0px solid #dcdcdc;}
+.left view{ display: block; height: 50px; line-height: 50px; border-bottom: 0px solid #dcdcdc; color: "#525252";font-size: 28rpx;}
 
-.right{ margin-left: 90px; height: 100%; overflow: hidden; width: auto;background: #fff;}
+.right{position: absolute;top: 110rpx; left: 90px; height: auto; overflow: hidden; width: 660rpx; background: #fff;}
 .right text{ font-size: 15px}
-.typeTree{ padding-top: 10px;width: 100%}
-.typeTree .item{  text-align: center; display: inline-block; vertical-align: top;}
+.typeTree{ padding-top: 10px;width: 86%}
+.typeTree .item{ text-align: center; display: inline-block; vertical-align: top;}
 .typeTree .brand,
-.typeTree .category{ flex-wrap: wrap; overflow: hidden;display: inline-block;width: 40%;margin-left: 6%}
+.typeTree .category{ flex-wrap: wrap; overflow: hidden;display: inline-block;width: 33.3%;text-align: center;}
 .typeTree .title{ padding: 10px 0; display: block; color: #333;}
-.typeTree image { width: 100px; margin: 0 auto;}
-.typeTree .brand image{ height: 100px;}
+.typeTree image { width: 80px; margin: 0 auto;}
+.typeTree .brand image{ height: 80px;}
 .typeTree .category image{ height: 85px;}
 .typeTree .category{ padding-bottom: 10px;}
-.item text{ padding-bottom: 10px; display: block;}
-
+.right-item-text{width: 160rpx; padding-bottom: 10px;font-size: 24rpx;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+/* 搜索 */
+.search_box {
+  position: absolute;
+  top: 23rpx;
+  left: 30rpx;
+  width: 690rpx;
+  border: 1rpx solid #D6D7DC;
+  border-radius: 30rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+  color: #7F8699;
+  background-color: #fff;
+}
+.search_box .search_box_input {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 90%;
+  height: 60rpx;
+  border-radius: 30rpx;
+  line-height: 60rpx;
+}
+.search_box>image {
+  margin: 16rpx 14rpx;
+  width: 27rpx;
+  height: 27rpx;
+  display: inline-block;
+  vertical-align: top;
+}
+.search_box_line {
+  margin-top: 108rpx;
+  width: 100%;
+  height: 1rpx;
+  background-color: #dddddd;
+}

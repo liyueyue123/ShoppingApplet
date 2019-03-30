@@ -4,7 +4,8 @@ Page({
     page:1,
     minusStatuses: ['disabled', 'disabled', 'normal', 'normal', 'disabled'],
     total: 0,
-    carts: []
+    carts: [],
+    hasProduct:false
   },
 
 bindMinus: function(e) {
@@ -29,6 +30,7 @@ bindMinus: function(e) {
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
+        console.log(res);
         var status = res.data.status;
         if(status==1){
           // 只有大于一件的时候，才能normal状态，否则disable状态
@@ -272,12 +274,18 @@ removeShopCard:function(e){
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        //--init data
+        console.log(res)
         var cart = res.data.cart;
         that.setData({
           carts:cart,
+          hasProduct:true
         });
-        //endInitData
+        console.log(res.data.cart.length);
+        // if (res.data.cart.length==0){
+        //   that.setData({
+        //     hasProduct: true
+        //   });
+        // }
       },
     });
   },

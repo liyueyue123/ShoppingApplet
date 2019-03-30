@@ -1,11 +1,11 @@
 // app.js
 App({
   d: {
-    hostUrl: 'http://shop.icpnt.com/index.php',
+    hostUrl: 'https://shop.icpnt.com/index.php',
     userId: 0,
     appId:"",//小程序appId
     appKey:"",//小程序appkey
-    ceshiUrl:'http://shop.icpnt.com/index.php'
+    ceshiUrl:'https://shop.icpnt.com/index.php'
   },
   onLaunch: function () {
     //调用API从本地缓存中获取数据

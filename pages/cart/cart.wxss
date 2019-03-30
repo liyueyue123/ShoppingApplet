@@ -191,6 +191,7 @@
   margin-left: 20rpx;
   margin-top: 10rpx;
   color: #fff;
+  vertical-align: text-bottom;
 }
  
 /*全选字样*/

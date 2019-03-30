@@ -21,7 +21,7 @@ page{
   position: absolute;
   top: 23rpx;
   left: 30rpx;
-  width: 630rpx;
+  width: 690rpx;
   border: 1rpx solid #D6D7DC;
   border-radius: 30rpx;
   height: 60rpx;
@@ -304,6 +304,7 @@ page{
   border:1px solid rgba(214, 215, 220, 1);
   border-radius:8rpx;
   box-sizing: border-box;
+  margin-bottom:30rpx;
 }
 .product_content_list .product_list_box .product_item_img{
   width: 100%;

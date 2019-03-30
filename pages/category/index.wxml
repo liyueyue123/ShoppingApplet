@@ -1,7 +1,15 @@
 <view class="section">
+    <!-- 搜索框 -->
+    <navigator url="/pages/search/search" hover-class="none">
+      <view class='search_box'>
+        <image src='/images/icon_seach.png'></image>
+        <view class='search_box_input'>搜索您要的商品</view>
+      </view>
+    </navigator>
+      <view class='search_box_line'></view>
     <!-- 左侧类型 -->
     <scroll-view scroll-y="true" class="left">
-        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType ? 'active' : ''}}" style="font-size:33rpx">
+        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType ? 'active' : ''}}" >
             {{item.name}}
         </view>
     </scroll-view>
@@ -12,9 +20,8 @@
             <view  class="brand" wx:for="{{typeTree}}" wx:for-item="data">
                 <navigator url="../listdetail/listdetail?cat_id={{data.id}}&title={{data.name}}" wx:key="typeId" class="item">
                     <image src="{{data.bz_1}}"></image>
-                    <text>{{data.name}}</text>
-                </navigator>
-                    
+                    <view class='right-item-text'>{{data.name}}</view>
+                </navigator>  
             </view>
         </view>
     </scroll-view>

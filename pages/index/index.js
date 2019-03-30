@@ -65,12 +65,6 @@ Page({
       }
     })
   },
-  // 点击搜索
-  gotoSearch(){
-    wx.navigateTo({
-      url: '../search/search'
-    })
-  },
   // 分类主题
   getTheme(options){
     let _this = this;

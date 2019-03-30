@@ -4,14 +4,16 @@
   <view class='home_container'>
     <view class='banner_bg'>
       <image class='banner_bg_img' src='/images/icon_bannerBg.png'></image>
-      <view class='search_box'>
-        <image src='/images/icon_seach.png'></image>
-        <view class='search_box_input' bindtap='gotoSearch'>搜索您要的商品</view>
-      </view>
-      <view class='info_box'>
+      <navigator url="/pages/search/search" hover-class="none">
+        <view class='search_box'>
+          <image src='/images/icon_seach.png'></image>
+          <view class='search_box_input'>搜索您要的商品</view>
+        </view>
+      </navigator>
+      <!-- <view class='info_box'>
         <image class='info_img' src='/images/icon_info.png'></image>
         <view class='info_content'>13</view>
-      </view>
+      </view> -->
       <swiper class='home_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
           <swiper-item>
