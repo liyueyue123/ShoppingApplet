@@ -205,8 +205,9 @@
     </view>
     <!--收藏-->
     <view class="df_1 l_h15 pt5">
-      <view bindtap="addFavorites">
-        <image class="icon_kf" src="/images/shc.png"></image>
+      <view bindtap="addFavorites"> 
+        <image class="icon_kf" src="/images/shc.png" wx:if="{{collect == 0? true : false}}"></image>
+        <image class="icon_kf" src="/images/shc_true.png" wx:else></image>
         <view bindtap="addFavorites" class="dbtext">收藏</view>
       </view>
     </view>

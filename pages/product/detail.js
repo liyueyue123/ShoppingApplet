@@ -24,6 +24,7 @@ Page({
     commodityAttr: [],
     attrValueList: [],
     clicktype: '',
+    collect:0,
   },
   shuxing: function (e) {
     var id = e.currentTarget.dataset.id
@@ -124,10 +125,12 @@ Page({
       icon: 'loading',
     })
     var that = this;
+      console.log(app.d.userId);
     wx.request({
       url: app.d.ceshiUrl + '/Api/Product/index',
       method: 'post',
       data: {
+        uid: app.d.userId,
         pro_id: that.data.productId,
       },
       header: {
@@ -136,15 +139,18 @@ Page({
       success: function (res) {
         var status = res.data.status;
         if (status == 1) {
+        // console.log(res.data)
           var pro = res.data.pro;
           var content = pro.content;
           var buff = res.data.buff;
+          var collect = res.data.pro.collect;
           WxParse.wxParse('content', 'html', content, that, 8);
           that.setData({
             itemData: pro,
             bannerItem: pro.img_arr,
             commodityAttr: buff,
-            includeGroup: buff
+            includeGroup: buff,
+            collect: collect
           });
           that.distachAttrValue(buff);
           // 只有一个属性组合的时候默认选中
@@ -375,11 +381,13 @@ Page({
         var data = res.data;
         if (data.status == 1) {
           wx.showToast({
-            title: '操作成功！',
+            title: '收藏成功！',
             duration: 2000
           });
           //变成已收藏，但是目前小程序可能不能改变图片，只能改样式
           that.data.itemData.isCollect = true;
+          that.loadProductDetail();
+        //   console.log(that.data.collect)
         } else {
           wx.showToast({
             title: data.err,
