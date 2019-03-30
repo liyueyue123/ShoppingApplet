@@ -13,7 +13,7 @@
         <button wx:for="{{historyKeyList}}" bindtap="doKeySearch" data-key="{{item.keyword}}">{{item.keyword}}</button>
     </view>
 </view>
-<view class="search_no" wx:if="{{!!searchValue && !productData.length}}">
+<view class="search_no" wx:if="{{!searchValue && !productData.length}}">
     <view class="font_14"><image class="scimg" src="/images/search_no.png"></image></view>
     <text>没有找到您要的宝贝/(ㄒoㄒ)/~~</text>
 </view>

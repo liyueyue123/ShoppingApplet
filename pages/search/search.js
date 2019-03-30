@@ -11,30 +11,9 @@ Page({
     historyKeyList:[],
     hotKeyList:[]
   },
-  onLoad:function(options){
+  onShow:function(options){
     var that = this;
-    wx.request({
-      url: app.d.ceshiUrl + '/Api/Search/index',
-      method:'post',
-      data: {uid:app.d.userId},
-      header: {
-        'Content-Type':  'application/x-www-form-urlencoded'
-      },
-      success: function (res) {
-        var remen = res.data.remen;
-        var history = res.data.history;
-        that.setData({
-          historyKeyList:history,
-          hotKeyList:remen,
-        });
-      },
-      fail:function(e){
-        wx.showToast({
-          title: '网络异常！',
-          duration: 2000
-        });
-      },
-    })
+    that.search(); //搜索调用
   },
   onReachBottom:function(){
       //下拉加载更多多...
@@ -54,6 +33,31 @@ Page({
 
     this.data.productData.length = 0;
     this.searchProductData();
+  },
+  search:function(){
+    var that = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/Search/index',
+      method: 'post',
+      data: { uid: app.d.userId },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        var remen = res.data.remen;
+        var history = res.data.history;
+        that.setData({
+          historyKeyList: history,
+          hotKeyList: remen,
+        });
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络异常！',
+          duration: 2000
+        });
+      },
+    })
   },
   doSearch:function(){
     var searchKey = this.data.searchValue;
@@ -105,12 +109,6 @@ Page({
     this.setData({
       searchValue:value,
     });
-    if(!value && this.data.productData.length == 0){
-      this.setData({
-        hotKeyShow:true,
-        historyKeyShow:true,
-      });
-    }
   },
   searchProductData:function(){
     var that = this;
