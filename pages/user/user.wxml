@@ -70,7 +70,7 @@
         </navigator>
     </view>
     <view class="qbdd mt10 ">
-        <navigator url="../listdetail/listdetail" hover-class="none">
+        <navigator url="../listdetail/listdetail?title=我的收藏" hover-class="none">
             <span class="font_14 c3 btnfont">我的收藏</span>
             <span class="fl_r c9 font_12 l_h20 btnfont arrow" hover-class="none"></span>
         </navigator>
@@ -82,7 +82,7 @@
         </navigator>
     </view>
     <view class="qbdd mt110">
-        <button class='contact-btn' open-type='contact'>
+        <button class='contact-btn' open-Stype='contact'>
             <span class="font_14 c333 btnfont">联系客服</span>
             <span class="fl_r c9 font_12 l_h20 btnfont arrow" hover-class="none"></span>
         </button>
