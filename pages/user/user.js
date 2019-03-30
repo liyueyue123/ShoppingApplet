@@ -33,7 +33,8 @@ Page({
         }],
         loadingText: '加载中...',
         loadingHidden: false,
-        askIsShow: true
+        askIsShow: true,
+        userId:'',
     },
     onLoad: function(options) {
         var that = this;
@@ -43,7 +44,8 @@ Page({
             //更新数据
             that.setData({
                 userInfo: userInfo,
-                loadingHidden: true
+                loadingHidden: true,
+                userId:app.d.userId
             })
         });
 
