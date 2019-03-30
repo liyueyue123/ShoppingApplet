@@ -23,7 +23,7 @@
 <view class="container carts-list">
 <!--勾-->
      <view wx:for="{{carts}}" class="carts-item" data-title="{{item.pro_name}}" id="{{item.id}}">
-         <icon wx:if="{{item.selected}}" type="success_circle"    size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
+         <icon wx:if="{{item.selected}}" type="success" color="#e88784"   size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
          <icon wx:else type="circle" size="20" bindtap="bindCheckbox" data-index="{{index}}"/>
      <!--img-->
      <view>
@@ -54,17 +54,31 @@
 
 
 <!--底部-->
-<view class="carts-footer">
+<view class="carts-footer" hidden="{{hasProduct}}">
    <view bindtap="bindSelectAll">
         
-       <icon wx:if="{{selectedAllStatus}}" type="success_circle" size="24" />
+       <icon wx:if="{{selectedAllStatus}}" type="success" color='#e88784' size="24" />
         <icon wx:else type="circle" size="24" />
         
         <text>全选</text>
         <text class="reds">{{total}}</text>
    </view>
-       <view class="button app_overallTone_bgColor" bindtap='bindCheckout'>立即结算             </view>
+       <view class="button app_overallTone_bgColor" bindtap='bindCheckout'>立即结算</view>
 </view>
+
+<!-- 商品推荐 -->
+  <view class='home_product_box'>
+    <image class='may_like' src='/images/icon_like.jpg' mode='aspectFill'></image>
+    <view class='product_content_list'>
+      <view class='product_list_box' wx:for="{{likes}}" wx:key="{{index}}" data-id='{{item.id}}' bindtap='gotoDetail'>
+        <image src='{{item.photo_x}}' class='product_item_img'></image>
+        <view class="product_item_name">{{item.name}}</view>
+        <view class='product_item_type'>{{item.intro}}</view>
+        <view class='product_item_price'>￥{{item.price_yh}}</view>
+        <!-- <image src='/images/icon_productPlus.png' class='product_item_plus'></image> -->
+      </view>
+    </view>
+  </view>
 
 
 </view>

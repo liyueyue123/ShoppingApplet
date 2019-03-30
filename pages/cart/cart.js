@@ -5,7 +5,8 @@ Page({
     minusStatuses: ['disabled', 'disabled', 'normal', 'normal', 'disabled'],
     total: 0,
     carts: [],
-    hasProduct:false
+    hasProduct:true,
+    likes:[]
   },
 
 bindMinus: function(e) {
@@ -214,6 +215,7 @@ onLoad:function(options){
 
 onShow:function(){
   this.loadProductData();
+  this.canLike(); //猜你喜欢
   this.setData({
     selectedAllStatus: false,
     total: 0
@@ -277,17 +279,44 @@ removeShopCard:function(e){
         console.log(res)
         var cart = res.data.cart;
         that.setData({
-          carts:cart,
-          hasProduct:true
+          carts:cart
         });
-        console.log(res.data.cart.length);
-        // if (res.data.cart.length==0){
-        //   that.setData({
-        //     hasProduct: true
-        //   });
-        // }
+        if (res.data.cart.length!=0){
+          that.setData({
+            hasProduct: false
+          });
+        }else{
+          that.setData({
+            hasProduct: true
+          });
+        }
       },
     });
   },
+  // 猜你喜欢
+  canLike:function(){
+    var that = this;
+    wx.request({
+      url: app.d.ceshiUrl + '/Api/index/likeProduct',
+      method: 'get',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      success: function (res) {
+        console.log(res)
+        var likes = res.data.data;
+        that.setData({
+          likes:likes
+        })
+      },
+    });
+  },
+  // 跳转详情
+  gotoDetail:function(e){
+    let productId = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: "../product/detail?productId=" + productId
+    })
+  }
 
 })
