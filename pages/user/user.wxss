@@ -77,6 +77,13 @@ contact-button{
   position: relative;
   left:-50px;
   opacity: 0;
+  background-color: #fff;
+}
+
+.button-hover {
+color:rgba(255, 255, 255);
+background-color:#fff;
+
 }
 
 .btnfont{
@@ -119,6 +126,7 @@ contact-button{
     width: 100%;
     padding: 0;
     line-height: 100%;
+    background-color: #fff;
 }
 /* 商品推荐 */
 .home_product_box {
