@@ -86,7 +86,7 @@ page{
   margin-top: 26rpx;
   padding-top: 51rpx;
   width: 100%;
-  height: 564rpx;
+  /* height: 564rpx; */
   background-color: #ffffff;
 }
 .home_sort_box .home_sorts {
