@@ -15,12 +15,17 @@ Page({
     homeProList:[],
     recommendProduct: [], // 热门商品
     recommendList: [], // 热卖套装
+    sceneCode:''  //场景值
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     var _this = this;
+    _this.setData({
+      sceneCode: app.globalData.scene
+    })
+    console.log(_this.data.sceneCode);
     //判断用户是否授权
     wx.getSetting({
       success(res) {

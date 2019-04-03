@@ -38,7 +38,7 @@
      </view>
 <!--右边-->
      <view class="title">
-        <text bindtap="removeShopCard" data-cartid="{{item.id}}" class="modal-close">x</text>
+        <view bindtap="removeShopCard" data-cartid="{{item.id}}" class="modal-close">x</view>
          <view class="stepper">
        <!-- 减号 -->
              <text class="{{minusStatuses[index]}}" data-index="{{index}}" bindtap="bindMinus" data-cartid="{{item.id}}">-</text>

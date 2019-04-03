@@ -25,8 +25,8 @@
     content: none;
 }
 .searchcion{
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 23px;
     text-align: center
 }
 .cont{

@@ -85,19 +85,22 @@ page{
   box-sizing: border-box;
   margin-top: 26rpx;
   padding-top: 51rpx;
+  padding-bottom: 20rpx;
   width: 100%;
-  /* height: 564rpx; */
   background-color: #ffffff;
+  margin-bottom: 30rpx;
 }
 .home_sort_box .home_sorts {
  padding: 10rpx 20rpx;
  box-sizing: border-box;
  width: 100%;
  /* height: 303rpx; */
+ height: auto;
  display: flex;
  justify-content: space-between;
  flex-wrap: wrap; 
  text-align: center;
+ background-color: #fff;
 }
 .home_sort_box .home_sorts .home_sort_list {
   padding: 22rpx;
@@ -130,6 +133,7 @@ page{
   width: 340rpx;
   height: 180rpx;
   border-radius: 6rpx;
+  background-color: #fff;
   box-shadow:0px 2px 9px 0px rgba(6,0,1,0.2);
 }
 .home_recommend_box .home_recommend_title {
@@ -198,67 +202,14 @@ page{
 /* 公众号 */
 .home_public{
   position: relative;
-  margin: 30rpx;
+  margin:0 30rpx 30rpx 30rpx;
   width:690rpx;
   height:167rpx;
   background:rgba(255,255,255,1);
   border-radius:14rpx;
-  padding-top:15rpx;
   box-sizing: border-box;
 }
-.home_public .home_public_tip {
-  margin-left:15rpx;
-  font-size:22rpx;
-  font-weight:400;
-  color:rgba(127,134,153,1);
-}
-.home_public .home_public_img {
-  display: inline-block;
-  margin:19rpx 0 0 24rpx;
-  width:80rpx;
-  height:80rpx;
-  /* background:rgba(216,169,255,1); */
-  border-radius:50%;
-}
-.home_public .home_public_inner{
-  position: absolute;
-  top: 62rpx;
-  left: 127rpx;
-  display: inline-block;
-  width: 420rpx;
-  height: 80rpx;
-  padding: 0 23rpx;
-  box-sizing: border-box;
-}
-.home_public .home_public_inner .home_public_title{
-  font-size:32rpx;
-  font-weight:400;
-  color:rgba(63,63,63,1);
- }
-.home_public .home_public_inner .home_public_introduct{
-  font-size:24rpx;
-  font-weight:400;
-  color:rgba(127,134,153,1);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
- }
-.home_public .home_public_attention {
-  position: absolute;
-  top: 74rpx;
-  right: 23rpx;
-  display: inline-block;
-  width:121rpx;
-  height:52rpx;
-  background:rgba(255,255,255,1);
-  border:1px solid rgba(20, 175, 64, 1);
-  border-radius:9px;
-  font-size:28rpx;
-  font-weight:400;
-  color:rgba(11,128,28,1);
-  text-align: center;
-  line-height: 52rpx;
-}
+
 /* 新品特价 */
 .home_product_box {
   width: 100%;

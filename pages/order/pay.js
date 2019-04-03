@@ -138,8 +138,15 @@ Page({
             //微信支付
             that.wxpay(data.arr);
           }
-        } else {
+        } else if (that.data.addrId==0){
           wx.showToast({
+            icon:'none',
+            title: "请先添加地址",
+            duration: 2500
+          });
+        }else{
+          wx.showToast({
+            icon: 'none',
             title: "下单失败!",
             duration: 2500
           });

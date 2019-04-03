@@ -9,8 +9,8 @@
       <view class='search_box_line'></view>
     <!-- 左侧类型 -->
     <scroll-view scroll-y="true" class="left">
-        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType ? 'active' : ''}}" >
-            {{item.name}}
+        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType||(currType==2&&index==0) ? 'active' : ''}}" >
+         {{item.name}}
         </view>
     </scroll-view>
 
@@ -18,8 +18,8 @@
     <scroll-view scroll-y="true" class="right">
         <view class="typeTree">
             <view  class="brand" wx:for="{{typeTree}}" wx:for-item="data">
-                <navigator url="../listdetail/listdetail?cat_id={{data.id}}&title={{data.name}}" wx:key="typeId" class="item">
-                    <image src="{{data.bz_1}}"></image>
+                <navigator url="../product/detail?productId={{data.id}}" wx:key="typeId" class="item">
+                    <image src="{{data.photo_x}}"></image>
                     <view class='right-item-text'>{{data.name}}</view>
                 </navigator>  
             </view>

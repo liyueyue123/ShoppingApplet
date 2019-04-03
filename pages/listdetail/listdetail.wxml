@@ -2,7 +2,7 @@
     <block wx:for="{{shopList}}" wx:key="*this" data-id="{{item.id}}">
         <view class="ban">
             <navigator url="../product/detail?productId={{item.id}}" class="cover flex-wrp">
-                <image class="banner" src="{{item.photo_x}}" mode="widthFix"></image>
+                <image class="banner" src="{{item.photo_x}}"></image>
           <view class="act-item ellipsis">
               <text class="type">{{item.name}}</text>
             </view>

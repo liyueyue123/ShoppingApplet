@@ -19,16 +19,16 @@
       <span class="jiage">
                   ¥ {{itemData.price_yh}}
       </span>
-      <span class="c6 fl_r font_14" style='color:#ccc'>
+      <!-- <span class="c6 fl_r font_14" style='color:#ccc'>
                     库存：{{itemData.num}}
-                  </span>
+      </span> -->
     </view>
     <view class="font_14 c6">
       品牌：{{itemData.brand}}
     </view>
-    <view class="font_14 c6">
+    <!-- <view class="font_14 c6">
       支付：微信支付
-    </view>
+    </view> -->
   </view>
 
 
@@ -89,7 +89,7 @@
       <view class="mingcheng">
         <view style="font-size:32rpx;">{{itemData.name}}</view>
         <view style="font-size:29rpx;color:red">¥ {{itemData.price_yh}}</view>
-        <view style="font-size:26rpx;color:#ccc">库存：{{itemData.num}}</view>
+        <!-- <view style="font-size:26rpx;color:#ccc">库存：{{itemData.num}}</view> -->
       </view>
     </view>
 

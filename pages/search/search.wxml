@@ -1,6 +1,6 @@
 <!--pages/search/search.wxml-->
-<view class="search df">
-    <input class="df_1" placeholder="请输入你有搜索的内容" auto-focus focus="{{focus}}" value="{{searchValue}}" bindinput="searchValueInput"/>
+<view class="search df app_overallTone_bgColor">
+    <input class="df_1" placeholder="请输入你有搜索的内容" confirm-type='search' bindconfirm='doSearch' auto-focus focus="{{focus}}" value="{{searchValue}}" bindinput="searchValueInput"/>
     <button bindtap="doSearch"><image class="searchcion" src="/images/search.png"></image></button>
 </view>
 <view class="cont" wx:if="{{hotKeyShow}}">
@@ -13,11 +13,11 @@
         <button wx:for="{{historyKeyList}}" bindtap="doKeySearch" data-key="{{item.keyword}}">{{item.keyword}}</button>
     </view>
 </view>
-<view class="search_no" wx:if="{{!searchValue && !productData.length}}">
+<view class="search_no" wx:if="{{isFirst!=0 &&(!searchValue || !productData.length)}}">
     <view class="font_14"><image class="scimg" src="/images/search_no.png"></image></view>
     <text>没有找到您要的宝贝/(ㄒoㄒ)/~~</text>
 </view>
-<view class="shop" wx:for="{{productData}}"> 
+<view class="shop" wx:for="{{productData}}" wx:if="{{!hotKeyShow &&searchValue!=''}}"> 
     <navigator url="../product/detail?productId={{item.id}}" hover-class="changestyle">      
         <image class="sh_slt" src="{{item.photo_x}}"></image>
         <view class="sp_text">

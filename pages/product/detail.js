@@ -120,10 +120,10 @@ Page({
 
   // 商品详情数据获取
   loadProductDetail: function () {
-    wx.showToast({
-      title: '加载中...',
-      icon: 'loading',
-    })
+    // wx.showToast({
+    //   title: '加载中...',
+    //   icon: 'loading',
+    // })
     var that = this;
       console.log(app.d.userId);
     wx.request({
@@ -377,13 +377,22 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        // //--init data        
+        // //--init data       
         var data = res.data;
         if (data.status == 1) {
-          wx.showToast({
-            title: '收藏成功！',
-            duration: 2000
-          });
+          if (that.data.collect == 0) {
+            wx.showToast({
+              title: '收藏成功！',
+              icon: 'none',
+              duration: 2000
+            });
+          } else {
+            wx.showToast({
+              title: '取消收藏！',
+              icon: 'none',
+              duration: 2000
+            });
+          }
           //变成已收藏，但是目前小程序可能不能改变图片，只能改样式
           that.data.itemData.isCollect = true;
           that.loadProductDetail();

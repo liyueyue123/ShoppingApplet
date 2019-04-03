@@ -3,7 +3,7 @@
   <asktip id="asktip" style="display:{{askIsShow==true?'none':''}};"></asktip>
   <view class='home_container'>
     <view class='banner_bg'>
-      <image class='banner_bg_img' src='/images/icon_bannerBg.png'></image>
+      <image class='banner_bg_img' src='/images/icon_bannerBg.png' ></image>
       <navigator url="/pages/search/search" hover-class="none">
         <view class='search_box'>
           <image src='/images/icon_seach.png'></image>
@@ -66,22 +66,16 @@
         </view>
       </view>
     </view>
-
-    <view class='home_public'>
-      <view class='home_public_tip'>吃吃喝喝关联的公众号</view>
-      <image class='home_public_img' src='/images/icon_product.png'></image>
-      <view class='home_public_inner'>
-        <view class='home_public_title'>吃吃喝喝</view>
-        <view class='home_public_introduct'> 安装服务、货运服务、家政维修,安装服务、货运服务、家政维修</view>
-      </view>
-      <view class='home_public_attention'>关注</view>
+    <!-- 公众号组件 -->
+    <view class='home_public' wx:if="{{sceneCode==1047||sceneCode==1089||sceneCode==1038}}">
+      <official-account></official-account>
     </view>
-
+      
     <view class='home_product_box'>
       <scroll-view class='product_title_list' scroll-x>
         <view wx:for='{{protuctSorts}}' wx:key='{{index}}' data-index="{{index}}" bindtap='checkTab' class="theme_title">
           <view class="{{index==protuctSortIndex?'active':''}}">{{item.theme_name}}</view>
-          <view class='active_line' wx:if="{{index==protuctSortIndex?true:false}}"></view>
+          <view class='active_line app_overallTone_bgColor' wx:if="{{index==protuctSortIndex?true:false}}"></view>
         </view>
       </scroll-view>
       <view class='product_content_list'>

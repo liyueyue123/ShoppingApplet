@@ -7,8 +7,10 @@ App({
     appKey:"",//小程序appkey
     ceshiUrl:'https://shop.icpnt.com/index.php'
   },
-  onLaunch: function () {
+  onLaunch: function (options) {
     //调用API从本地缓存中获取数据
+    // console.log(options);
+    this.globalData.scene = options.scene;
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
@@ -140,7 +142,8 @@ App({
 
  globalData:{
     userInfo:null,
-    userId: null
+    userId: null,
+    scene:null
   },
 
   onPullDownRefresh: function (){

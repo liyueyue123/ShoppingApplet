@@ -66,7 +66,8 @@ getMore:function(e){
       header: {
         'Content-Type':  'application/x-www-form-urlencoded'
       },
-      success: function (res) {  
+      success: function (res) {
+        console.log(res);
         var prolist = res.data.pro;
         if(prolist==''){
           wx.showToast({
@@ -177,6 +178,7 @@ onLoad: function (options) {
                     'content-type': 'application/x-www-form-urlencoded'
                 },
                 success: function (res) {
+                  console.log(res, cat_id);
                     var shoplist = res.data.pro;
                     that.setData({
                         shopList: shoplist
