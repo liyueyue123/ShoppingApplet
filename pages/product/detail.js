@@ -4,7 +4,6 @@ var app = getApp();
 //引入这个插件，使html内容自动转换成wxml内容
 var WxParse = require('../../wxParse/wxParse.js');
 Page({
-
   data: {
     productId: 0,
     itemData: {},
@@ -25,6 +24,7 @@ Page({
     attrValueList: [],
     clicktype: '',
     collect:0,
+    shareShow:false, //分享组件是否显示
   },
   shuxing: function (e) {
     var id = e.currentTarget.dataset.id
@@ -573,6 +573,7 @@ Page({
     wx.hideToast();
   },
 
+  // 转发按钮
   onShareAppMessage: function () {
     var title = this.data.itemData.name;
     var id = this.data.itemData.id;
@@ -586,5 +587,14 @@ Page({
         // 分享失败
       }
     }
-  }
+  },
+
+  // 分享朋友圈
+  shareBtn:function(){
+    var that = this;
+    var userInfo = app.globalData.userInfo;
+    // console.log(userInfo);
+
+  },
+  
 });

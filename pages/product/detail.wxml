@@ -1,10 +1,15 @@
 <!--pages/index/detail.wxml-->
-
-
 <!--内容开始-->
+<!-- <share id="share"></share> -->
+<view>
+<view class='detail_share' bindtap='shareBtn'>
+  <image src='/images/icon_share.png'></image>
+  <view>分享</view>
+</view>
+
 <view class="cont">
   <swiper style="height:375px" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{bannerItem}}">
+    <block wx:for="{{bannerItem}}" wx:key="index">
       <swiper-item>
         <image src="{{item}}" class="slide-image" />
       </swiper-item>
@@ -30,12 +35,6 @@
       支付：微信支付
     </view> -->
   </view>
-
-
-
-
-
-
 
   <!-- <view class="shuxing" bindtap="shuxing" data-id="{{id}}">
 
@@ -171,7 +170,7 @@
         <view class="name">售后：</view>
         <view class="df_1 c3">{{itemData.shouhou}}</view>
       </view>
-      <view class="canshu df" wx:if="{{itemData.canshulist!=''}}" wx:for="{{itemData.canshulist}}">
+      <view class="canshu df" wx:if="{{itemData.canshulist!=''}}" wx:for="{{itemData.canshulist}}" wx:key="index">
         <view class="name">{{item.csname}}：</view>
         <view class="df_1 c3">{{item.csvalue}}</view>
       </view>
@@ -221,6 +220,7 @@
 
   <!--底部-->
 
+</view>
 </view>
 
 

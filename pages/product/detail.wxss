@@ -5,9 +5,30 @@ page {
   overflow-x:hidden; 
 }
 
+/* 分享按钮 */
+.detail_share {
+  position: fixed;
+  top: 20rpx;
+  right: 40rpx;
+  width: 90rpx;
+  height: 96rpx;
+  padding: 8rpx;
+  box-sizing: border-box;
+  font-size: 24rpx;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx #B7B7B7; 
+  background-color: #fff;
+  z-index: 9999;
+  color: #e88784;
+  text-align: center;
+  border-radius: 10rpx;
+}
+.detail_share image{
+  width: 42rpx;
+  height: 42rpx;
+}
+
 .cont {
   width: 100%;
-
 }
 
 .cont .title {
@@ -25,8 +46,6 @@ page {
   margin: 2% 5% 2% 5%;
   font-weight: 700;
 }
-
-
 
 .gmxx {
   padding: 1% 5% 5% 5%;
@@ -532,3 +551,4 @@ page {
 .btncolor{
   background: #FF5722;
 }
+

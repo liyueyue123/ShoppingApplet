@@ -128,9 +128,12 @@ onLoad: function (options) {
             success: function (res) {
                 console.log(res);
                 var shoplist = res.data.data;
-                that.setData({
+              if (shoplist.length!=0){
+                  that.setData({
                     shopList: shoplist
-                })
+                  })
+                }
+                
             },
             fail: function (e) {
                 wx.showToast({

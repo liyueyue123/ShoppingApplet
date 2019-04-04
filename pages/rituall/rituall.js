@@ -29,7 +29,8 @@ Page({
       header: {
         'Content-Type':  'application/x-www-form-urlencoded'
       },
-      success: function (res) {  
+      success: function (res) {
+        console.log(res);  
         var vou = res.data.nouses;
         var status = res.data.status;
         if(status==1){
