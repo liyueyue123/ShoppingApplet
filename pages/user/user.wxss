@@ -141,7 +141,7 @@ height: 48rpx;
 .product_content_list {
 width: 100%;
 height: auto;
-padding: 0 30rpx;
+padding: 20rpx 30rpx;
 box-sizing: border-box;
 display: flex;
 justify-content: space-between;
@@ -149,12 +149,13 @@ flex-wrap: wrap;
 }
 .product_content_list .product_list_box{
 position: relative;
-width: 330rpx;
+width: 340rpx;
 height: 505rpx;
-border:1px solid rgba(214, 215, 220, 1);
-border-radius:8rpx;
+margin-bottom:15rpx;
+overflow: hidden;
+box-shadow: 0rpx 0rpx 40rpx rgba(214, 215, 220, 1);
+border-radius:20rpx;
 box-sizing: border-box;
-margin-bottom:30rpx;
 }
 .product_content_list .product_list_box .product_item_img{
 width: 100%;

@@ -5,23 +5,37 @@ Page({
     radioindex: '',
     pro_id:0,
     num:0,
-    cartId:0
+    cartId:'',
+    payPage:false,//支付页面进入
   },
   onLoad: function (options) {
     var that = this;
     // 页面初始化 options为页面跳转所带来的参数
     var cartId = options.cartId;
+    var payPage = options.payPage;
+    if (payPage != undefined || payPage != ''){
+      that.setData({
+        payPage:true,
+        cartId:cartId
+      });
+      // console.log(payPage, that.data.payPage)
+    }
     console.log(app.d.userId);
+    
+  },
+  onShow(){
+    // console.log(app.d.userId)
+    var that = this;
     wx.request({
       url: app.d.ceshiUrl + '/Api/Address/index',
       data: {
-        user_id:app.d.userId,
+        user_id: app.d.userId,
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       header: {// 设置请求的 header
-        'Content-Type':  'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded'
       },
-      
+
       success: function (res) {
         // success
         var address = res.data.adds;
@@ -29,10 +43,9 @@ Page({
         if (address == '') {
           var address = []
         }
-        
+
         that.setData({
           address: address,
-          cartId: cartId,
         })
       },
       fail: function () {
@@ -43,9 +56,7 @@ Page({
         });
       }
     })
-    
   },
-
   onReady: function () {
     // 页面渲染完成
   },
@@ -62,21 +73,19 @@ Page({
       header: {// 设置请求的 header
         'Content-Type':  'application/x-www-form-urlencoded'
       },
-      
       success: function (res) {
         // success
         var status = res.data.status;
         var cartId = that.data.cartId;
         if(status==1){
-          if (cartId) {
-            wx.redirectTo({
+          if (cartId && that.data.payPage) {
+            wx.navigateBack({
               url: '../../order/pay?cartId=' + cartId,
             });
             return false;
           }
-
           wx.showToast({
-            title: '操作成功！',
+            title: '默认成功！',
             duration: 2000
           });
           

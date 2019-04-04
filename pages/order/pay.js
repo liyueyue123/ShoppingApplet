@@ -24,6 +24,9 @@ Page({
     });
     this.loadProductDetail();
   },
+  onShow(){
+    this.loadProductDetail();
+  },
   loadProductDetail:function(){
     var that = this;
     wx.request({
