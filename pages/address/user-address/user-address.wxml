@@ -1,5 +1,11 @@
 
 <!--地址管理-->
+<navigator url="../address?cartId={{cartId}}" open-type='navigate'>
+  <view hidden="{{hiddenAddress}}" class="add-address">
+    <image class="add-address-icon" src="#"></image>
+    <view class='btnfont'>新增地址</view>
+  </view>
+</navigator>
 <radio-group class="radio-group" wx:for="{{address}}">
 <view hidden="{{hiddenAddress}}" class="address" >
   <view class="address-icon" bindtap="setDefault" data-id="{{item.id}}">
@@ -26,9 +32,3 @@
   </view>
 </view>
 </radio-group>
-<navigator url="../address?cartId={{cartId}}" open-type='navigate'>
-  <view hidden="{{hiddenAddress}}" class="add-address">
-    <image class="add-address-icon" src="#"></image>
-    <view class='btnfont'>新增地址</view>
-  </view>
-</navigator>

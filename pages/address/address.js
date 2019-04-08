@@ -2,41 +2,39 @@
 var app = getApp();
 Page({
     data: {
-        cartId: 0,
-        region: [],
-        province: '',
-        city: '',
-        county: '',
+      shengArr: [],//省级数组
+      shengId: [],//省级id数组
+      shiArr: [],//城市数组
+      shiId: [],//城市id数组
+      quArr: [],//区数组
+      quId: [],
+      shengIndex: 0,
+      shiIndex: 0,
+      quIndex: 0,
+      mid: 0,
+      sheng:22,
+      city: 0,
+      area: 0,
+      code: 0,
+      cartId: 0,
+      multiIndex:[],
+      addressShow:false,
+      multiArray: [],
     },
     formSubmit: function (e) {
         var adds = e.detail.value;
         var cartId = this.data.cartId;
-        console.log(this.data.province, this.data.city, this.data.county)
         wx.request({
             url: app.d.ceshiUrl + '/Api/Address/add_adds',
             data: {
-                // user_id:'111',
-                // receiver: '2222',
-                // tel: '1111',
-                // province: this.data.province,
-                // city: this.data.city,
-                // county: this.data.county
-                user_id: app.d.userId,
-                receiver: adds.name,
-                tel: adds.phone,
-                sheng: '1',
-                city: '1',
-                quyu: '1',
-                adds: adds.address,
-                code: '00000',
-              // user_id: app.d.userId,
-              // receiver: adds.name,
-              // tel: adds.phone,
-              // sheng: this.data.sheng,
-              // city: this.data.city,
-              // quyu: this.data.area,
-              // adds: adds.address,
-              // code: this.data.code,
+              user_id: app.d.userId,
+              receiver: adds.name,
+              tel: adds.phone,
+              sheng: this.data.shengId[this.data.shengIndex],
+              city: this.data.shiId[this.data.shiIndex],
+              quyu: this.data.quId[this.data.quIndex],
+              adds: adds.address,
+              code: this.data.code,
             },
             method: 'POST',
             header: {// 设置请求的 header
@@ -82,25 +80,16 @@ Page({
         that.setData({
             cartId: options.cartId
         })
+        that.getProvinces();
     },
     // 改变所在地区
-    bindRegionChange(e) {
+    bindMultiPickerChange(e) {
+      console.log(e)
         let val = e.detail.value;
         let code = e.detail.code;
-      console.log(e.currentTarget.dataset.index)
         this.setData({
-            // sheng: code[0],
-            // city: code[1],
-            // quyu: code[2],
-            sheng: val[0],
-            city: val[1],
-            quyu: val[2]
-        });
-        this.setData({
-            region: e.detail.value
+          multiIndex: e.detail.value
         })
-        console.log(e.detail)
-        console.log(this.data.region)
     },
     // 手机号验证
     bindTelephone(e) {
@@ -121,6 +110,180 @@ Page({
                 });
             }
         }
+    },
+    bindMultiPickerColumnChange(e){
+      console.log(e);
+      if (e.detail.column == 0){
+        this.setData({
+          shengIndex: e.detail.value,
+        })
+        this.getCities();
+      }
+      if (e.detail.column == 1){
+        this.setData({
+          shiIndex: e.detail.value
+        })
+        this.getCounties();
+      }
+      if (e.detail.column == 2){
+        this.setData({
+          quIndex: e.detail.value
+        })
+        this.getCodes();
+      }
+      this.setData({
+        addressShow: true
+      })
+    },
+    getProvinces () {
+      var that = this;
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Address/get_province',
+        data: {},
+        method: 'POST',
+        success: function (res) {
+          var status = res.data.status;
+          var province = res.data.list;
+          var sArr = [];
+          var sId = [];
+          for (var i = 0; i < province.length; i++) {
+            sArr.push(province[i].name);
+            sId.push(province[i].id);
+          }
+          that.setData({
+            shengArr: sArr,
+            shengId: sId
+          })
+          // console.log(that.data.shengArr)
+          that.getCities();
+        },
+        fail: function () {
+          // fail
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        },
+      })
+    },
+    getCities () {
+      var that = this;
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Address/get_city',
+        data: { sheng: that.data.shengIndex+1 },
+        method: 'POST',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          // success
+          var status = res.data.status;
+          var city = res.data.city_list;
+
+          var hArr = [];
+          var hId = [];
+          for (var i = 0; i < city.length; i++) {
+            hArr.push(city[i].name);
+            hId.push(city[i].id);
+          }
+          that.setData({
+            sheng: res.data.sheng,
+            shiArr: hArr,
+            shiId: hId
+          })
+          // console.log(that.data.shiArr);
+          that.getCounties();
+        },
+        fail: function () {
+          // fail
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        },
+
+      })
+    },
+    getCounties () {
+      var that = this;
+      // console.log('city',that.data.shiIndex)
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Address/get_area',
+        data: {
+          city: that.data.shiIndex+1,
+          sheng: that.data.shengId[that.data.shengIndex]
+        },
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: {// 设置请求的 header
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          var status = res.data.status;
+          var area = res.data.area_list;
+
+          var qArr = [];
+          var qId = [];
+          // qArr.push('请选择');
+          // qId.push('0');
+          for (var i = 0; i < area.length; i++) {
+            qArr.push(area[i].name)
+            qId.push(area[i].id)
+          }
+          that.setData({
+            city: res.data.city,
+            quArr: qArr,
+            quId: qId
+          })
+          // console.log(that.data.quId)
+          // console.log(that.data.shengId)
+          // console.log(that.data.shiId)
+          var multiArray = [];
+          multiArray.push(that.data.shengArr,that.data.shiArr,that.data.quArr)
+          console.log(multiArray)
+          that.setData({
+            multiArray: multiArray
+          })
+        },
+        fail: function () {
+          // fail
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        }
+      })
+    },
+    getCodes () {
+      console.log(this.data.city)
+      this.setData({
+        quIndex: this.data.quIndex
+      });
+      var that = this;
+      wx.request({
+        url: app.d.ceshiUrl + '/Api/Address/get_code',
+        data: {
+          quyu: that.data.quIndex,
+          city: that.data.shiIndex + 1
+        },
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: {// 设置请求的 header
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        success: function (res) {
+          that.setData({
+            area: res.data.area,
+            code: res.data.code
+          })
+          console.log(that.data.area, that.data.code)
+        },
+        fail: function () {
+          // fail
+          wx.showToast({
+            title: '网络异常！',
+            duration: 2000
+          });
+        }
+      })
     }
 
 })
