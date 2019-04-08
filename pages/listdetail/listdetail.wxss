@@ -95,14 +95,26 @@ page {
 .list{
   background: #fff;
   width: 100%;
+  padding: 10rpx 15rpx;
+  box-sizing: border-box;
+  /* float: left; */
+  /* text-align: center; */
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 .ban{
-  width: 45.6%;
-  padding: 10rpx ;
-  border: 2rpx solid #ccc;
+  width: 346rpx;
+  /* padding: 10rpx ; */
   display: inline-block;
-  margin-left:6rpx;
-  margin-bottom: 6rpx;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+  box-shadow: 0rpx 0rpx 40rpx rgba(214, 215, 220, 1);
+  border-radius:20rpx;
+  box-sizing: border-box;
+}
+.ban:nth-child(2n){
+  margin-left: 10rpx;
 }
 .ban image{
   width: 346rpx;
@@ -145,13 +157,13 @@ page {
  padding-top: 20rpx;
 }
 .mt10{
-  margin: 0 auto;
+  margin: 50rpx auto;
   text-align: center;
   height: 70rpx;
   width: 450rpx;
   line-height: 70rpx;
   border-radius:10rpx; 
-  border: 1px solid #999;
+  /* border: 1px solid #999; */
+  color: #fff;
   font-size: 30rpx;
-  margin-top: 30rpx;
 }

@@ -1,6 +1,6 @@
 /* pages/home/homeIndex/homeIndex.wxss */
 page{
-	background:#F5F5F5;
+	background:rgb(245, 245, 245);
   z-index:100;
 }
 .home_container {
@@ -254,7 +254,7 @@ page{
 .product_content_list {
   width: 100%;
   height: auto;
-  padding: 0 30rpx;
+  padding: 0 25rpx;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -262,12 +262,14 @@ page{
 }
 .product_content_list .product_list_box{
   position: relative;
-  width: 330rpx;
+  width: 345rpx;
   height: 505rpx;
-  border:1px solid rgba(214, 215, 220, 1);
-  border-radius:8rpx;
+  /* border:1px solid rgba(214, 215, 220, 1); */
+  box-shadow: 0rpx 0rpx 40rpx rgba(214, 215, 220, 1);
+  border-radius:20rpx;
   box-sizing: border-box;
-  margin-bottom:30rpx;
+  margin-bottom:15rpx;
+  overflow: hidden;
 }
 .product_content_list .product_list_box .product_item_img{
   width: 100%;

@@ -1,4 +1,4 @@
-<view class="orderDetails" wx:for="{{vou}}">
+<view class="orderDetails" wx:for="{{vou}}" wx:key="{{index}}">
 	<view class="orderListDetails">
 		<view class="productInfo">
           <text class="x">¥</text>

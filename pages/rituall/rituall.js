@@ -21,6 +21,7 @@ Page({
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    console.log('1111111111')
     var that = this;
     wx.request({
       url: app.d.ceshiUrl + '/Api/User/voucher',
@@ -30,7 +31,7 @@ Page({
         'Content-Type':  'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        console.log(res);  
+        console.log(res);
         var vou = res.data.nouses;
         var status = res.data.status;
         if(status==1){

@@ -7,7 +7,8 @@ Page({
     title:'蓝果小镇商城',
     page:2,
     catId:0,
-    brandId: 0
+    brandId: 0,
+    btnShow:false,//更多按钮的显示
   },
 showModal: function () {
     // 显示遮罩层

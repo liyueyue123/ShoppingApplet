@@ -40,3 +40,9 @@ button {
 .btnfont{
   font-size: 15px;
 }
+
+.inputStyle{
+    text-align:right;
+    margin-left:20rpx;
+    flex: 1;
+}
