@@ -1,0 +1,10 @@
+<!--components/share/index.wxml-->
+<view class="share show" bindtap='draw'>
+  <view class="content">
+    <canvas class="canvas" canvas-id="shareImg" bindlongpress="handleSave"/>
+    <!-- <view class="footer">
+      <view class="save">保存到相册</view>
+      <view class="close">关闭</view>
+    </view> -->
+  </view>
+</view>

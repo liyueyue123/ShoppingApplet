@@ -1,0 +1,78 @@
+/* components/share/index.wxss */
+.share {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgb(182, 180, 180);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: 99999;
+  padding: 20% 0;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.share.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.share .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height:900rpx;
+  background-color: #fff;
+}
+
+/* .share .content .footer {
+  width: 562rpx;
+  height: 100rpx;
+  background: #fff;
+  border-top: 2rpx solid #e9e9e9;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+} */
+
+/* .share .content .footer .close {
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  flex-grow: 0;
+  flex-shrink: 0;
+  text-align: center;
+  border-left: 2rpx solid #e9e9e9;
+} */
+
+/* .share .content .footer .save {
+  height: 100rpx;
+  line-height: 100rpx;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+} */
+
+.share.show .content .canvas {
+  display: inline-block;
+}
+
+.share .content .canvas {
+  display: inline-block;
+  /* background: #fff; */
+  background: red;
+  box-shadow: 1rpx 1rpx 1rpx 1rpx #B7B7B7; 
+  margin: 0;
+  width: 96%;
+  height: 98%;
+  border-radius: 20rpx;
+  padding: 10%;
+  box-sizing: border-box;
+}
