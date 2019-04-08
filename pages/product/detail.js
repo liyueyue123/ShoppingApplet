@@ -24,7 +24,8 @@ Page({
     attrValueList: [],
     clicktype: '',
     collect:0,
-    shareShow:false, //分享组件是否显示
+    shareShow:"none", //分享组件是否显示
+    shareBtnShow:"none"
   },
   shuxing: function (e) {
     var id = e.currentTarget.dataset.id
@@ -125,7 +126,7 @@ Page({
     //   icon: 'loading',
     // })
     var that = this;
-      console.log(app.d.userId);
+    // console.log(app.d.userId);
     wx.request({
       url: app.d.ceshiUrl + '/Api/Product/index',
       method: 'post',
@@ -362,7 +363,12 @@ Page({
       }
     }
   },
-
+  // 回首页 
+  goHome:function(e){
+    wx.switchTab({
+      url: "../index/index"
+    })
+  },
   //添加到收藏
   addFavorites: function (e) {
     var that = this;
@@ -593,6 +599,9 @@ Page({
   shareBtn:function(){
     var that = this;
     var userInfo = app.globalData.userInfo;
+    that.setData({
+      shareBtnShow:''
+    })
     // console.log(userInfo);
 
   },

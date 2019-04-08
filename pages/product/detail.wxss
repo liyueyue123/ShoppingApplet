@@ -211,7 +211,7 @@ page {
 }
 
 .huihua {
-  width: 190rpx;
+  width: 120rpx;
   position: absolute;
   bottom: 0rpx;
   opacity: 0;

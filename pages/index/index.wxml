@@ -16,9 +16,11 @@
       </view> -->
       <swiper class='home_swiper' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
         <block wx:for="{{imgUrls}}" wx:key='{{index}}'>
+        <navigator url='../product/detail?productId={{item.action}}'>
           <swiper-item>
             <image src="{{item.photo}}" class="slide-image" />
           </swiper-item>
+        </navigator>
         </block>
       </swiper>
     </view>
