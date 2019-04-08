@@ -2,6 +2,7 @@
 <!--内容开始-->
 <!-- <share id="share"></share> -->
 <view>
+<!-- 分享按钮 -->
 <view class='detail_share' bindtap='shareBtn'>
   <image src='/images/icon_share.png'></image>
   <view>分享</view>

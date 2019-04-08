@@ -1,0 +1,8 @@
+<!--components/shareBtn/index.wxml-->
+<view class='shade'>
+  <view class='bottom_box'>
+    <button>分享给好友</button>
+    <button>分享到朋友圈</button>
+    <button class='cancel'>取消</button>
+  </view>
+</view>

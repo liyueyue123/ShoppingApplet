@@ -24,12 +24,12 @@
     </view>
 
     <view class='home_sort_box'>
-      <view class='home_sorts'>
+      <!-- <view class='home_sorts'>
         <view class='home_sort_list' wx:for="{{sortInner}}" wx:key='{{index}}' data-id="{{item.id}}" bindtap='gotoProduct'>
           <image src='{{item.theme_img}}'></image>
           <view class='home_sort_title'>{{item.theme_name}}</view>
         </view>
-      </view>
+      </view> -->
       <view class='home_recommend'>
         <view class='home_recommend_box'>
           <navigator url="/pages/listdetail/listdetail" hover-class="none">
