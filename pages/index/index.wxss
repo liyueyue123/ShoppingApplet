@@ -120,6 +120,7 @@ page{
   font-size: 24rpx;
 }
 .home_recommend {
+  margin-top: 20rpx;
   box-sizing: border-box;
   padding: 0 26rpx;
   width: 100%;
