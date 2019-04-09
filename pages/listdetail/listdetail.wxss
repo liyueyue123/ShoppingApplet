@@ -111,6 +111,7 @@ page {
   overflow: hidden;
   box-shadow: 0rpx 0rpx 40rpx rgba(214, 215, 220, 1);
   border-radius:20rpx;
+  padding: 10rpx;
   box-sizing: border-box;
 }
 .ban:nth-child(2n){
@@ -123,12 +124,12 @@ page {
 .type{
   font-size:30rpx;
   font-weight: 700;
-  margin-left: 10rpx;
+  /* margin-left: 10rpx; */
 }
  .kkk{
     font-size:26rpx;
   /*font-weight: 700;*/
-  margin-left: 10rpx;
+  /* margin-left: 10rpx; */
   color: gray;
 }
 

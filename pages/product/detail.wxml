@@ -1,12 +1,15 @@
 <!--pages/index/detail.wxml-->
-<!--内容开始-->
-<!-- <share id="share"></share> -->
+<!--内容开始--> 
+<!-- 分享组件 -->
+<!-- <share id="share" style="display:{{shareShow}}"></share> -->
+<!-- 分享按钮组件 -->
+<!-- <shareBtn id="shareBtn" style="display:{{shareBtnShow}}"></shareBtn> -->
 <view>
 <!-- 分享按钮 -->
-<view class='detail_share' bindtap='shareBtn'>
+<!-- <view class='detail_share' bindtap='shareBtn'>
   <image src='/images/icon_share.png'></image>
   <view>分享</view>
-</view>
+</view> -->
 
 <view class="cont">
   <swiper style="height:375px" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -185,6 +188,13 @@
 <!---底部开始-->
 <view class="footfixed tc">
   <view class="fl_l w40 font_12 hui03 df">
+  <!-- 首页 -->
+    <view class="df_1 l_h15 pt5 bre">
+      <view bindtap='goHome'> 
+        <image class="icon_kf" src="/images/icon_home_sel.png"></image>
+        <view class="dbtext">首页</view>
+      </view>
+    </view>
     <!--客服 -->
     <view class="df_1 l_h15 pt5 bre">
       <view class="df_1 l_h15 pt5 bre">
@@ -193,8 +203,8 @@
       </view>
       <!--会话-->
       <view class="huihua">
-        <contact-button></contact-button>
-        <contact-button></contact-button>
+        <!-- <contact-button></contact-button>
+        <contact-button></contact-button> -->
         <contact-button></contact-button>
         <contact-button></contact-button>
         <contact-button></contact-button>

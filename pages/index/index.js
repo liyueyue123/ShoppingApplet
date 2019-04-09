@@ -57,7 +57,7 @@ Page({
         'Content-Type': 'application/x-www-form-urlencoded'
       },
       success: function (res) {
-        // console.log(res);
+        console.log(res);
         _this.setData({
           imgUrls: res.data.data
         })
