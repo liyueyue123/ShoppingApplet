@@ -69,7 +69,7 @@
       </view>
     </view>
     <!-- 公众号组件 -->
-    <view class='home_public' wx:if="{{sceneCode==1047||sceneCode==1089||sceneCode==1038}}">
+    <view class='home_public' wx:if="{{sceneCode==1047}}">
       <official-account></official-account>
     </view>
       
