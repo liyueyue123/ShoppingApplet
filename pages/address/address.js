@@ -88,8 +88,9 @@ Page({
         let val = e.detail.value;
         let code = e.detail.code;
         this.setData({
-          multiIndex: e.detail.value
-        })
+          multiIndex: e.detail.value,
+          addressShow: true
+        });
     },
     // 手机号验证
     bindTelephone(e) {
@@ -131,9 +132,6 @@ Page({
         })
         this.getCodes();
       }
-      this.setData({
-        addressShow: true
-      })
     },
     getProvinces () {
       var that = this;
